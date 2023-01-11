@@ -25,6 +25,8 @@ function App() {
 
     setCards(shuffledCards)
     setTurns(0)
+    setChoiceOne(null)
+    setChoiceTwo(null)
   }
 
   // console.log(cards, turns)
@@ -71,11 +73,15 @@ function App() {
         }, 1000)
       }
 
-      console.log(turns)
+      // console.log(turns)
     }
   }, [choiceOne, choiceTwo])
 
-  console.log(cards)
+  // console.log(cards)
+
+  useEffect(() => {
+    shuffleCards()
+  }, [])
 
   return (
     <div className="App">
@@ -93,6 +99,7 @@ function App() {
           />
         ))}
       </div>
+      <p>Number of Turns: {turns}</p>
     </div>
   )
 }
